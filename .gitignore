@@ -1,0 +1,17 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+
+# Environment files
+.env
+.env.*
+*.pem
+
+# Build and editor artifacts
+node_modules/
+dist/
+coverage/
+.vscode/
+.DS_Store

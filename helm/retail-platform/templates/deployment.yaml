@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "retail-platform.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "retail-platform.name" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "retail-platform.name" . }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "retail-platform.name" . }}
+    spec:
+      containers:
+        - name: {{ include "retail-platform.name" . }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.containerPort }}
+          env:
+            - name: APP_ENV
+              value: {{ .Values.env.APP_ENV | quote }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
