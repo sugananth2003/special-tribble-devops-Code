@@ -10,7 +10,11 @@ jobs:
   terraform-validate:
     name: Terraform Validate
     runs-on: ubuntu-latest
+<<<<<<< HEAD
     if: ${{ hashFiles('terraform/**/*.tf') != '' }}
+=======
+    
+>>>>>>> ea7cbde1d979bfe6f9b30de52ec3b3574ee659d6
     defaults:
       run:
         working-directory: terraform
@@ -33,7 +37,11 @@ jobs:
   helm-lint:
     name: Helm Lint
     runs-on: ubuntu-latest
+<<<<<<< HEAD
     if: ${{ hashFiles('helm/**/Chart.yaml') != '' }}
+=======
+    if: ${{hashFiles('helm/**/Chart.yaml') != ''}}
+>>>>>>> ea7cbde1d979bfe6f9b30de52ec3b3574ee659d6
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4

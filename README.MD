@@ -225,16 +225,27 @@ Here’s a complete starter pack for your DevOps pipeline — modular, productio
 ==================================
 Code
 terraform/
+
 ├── main.tf
+
 ├── variables.tf
+
 ├── outputs.tf
+
 ├── backend.tf
+
 ├── modules/
-│   ├── vpc/
-│   ├── eks/
-│   ├── iam/
-│   ├── rds/
-│   └── ecr/
+
+  │   ├── vpc/
+
+  │   ├── eks/
+
+  │   ├── iam/
+
+  │   ├── rds/
+
+  │   └── ecr/
+
 main.tf: Calls modules and sets up dependencies.
 
 backend.tf: Configures remote state (S3 + DynamoDB).
@@ -1298,6 +1309,4 @@ This report provides a **comprehensive, production-ready blueprint** for deployi
 For a high-level summary of the architecture, workflow, and key features of this DevOps project, see [overview.md](overview.md).
 
 Refer to the overview document for a concise summary and onboarding guide.
-
----
 ![alt text](image.png)
