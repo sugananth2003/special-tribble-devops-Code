@@ -220,16 +220,18 @@ Here’s a complete starter pack for your DevOps pipeline — modular, productio
 🧱 Terraform Module Structure
 Code
 terraform/
+
 ├── main.tf
 ├── variables.tf
 ├── outputs.tf
 ├── backend.tf
 ├── modules/
-│   ├── vpc/
-│   ├── eks/
-│   ├── iam/
-│   ├── rds/
-│   └── ecr/
+  │   ├── vpc/
+  │   ├── eks/
+  │   ├── iam/
+  │   ├── rds/
+  │   └── ecr/
+
 main.tf: Calls modules and sets up dependencies.
 
 backend.tf: Configures remote state (S3 + DynamoDB).
