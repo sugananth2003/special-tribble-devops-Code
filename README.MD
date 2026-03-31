@@ -222,14 +222,23 @@ Code
 terraform/
 
 ├── main.tf
+
 ├── variables.tf
+
 ├── outputs.tf
+
 ├── backend.tf
+
 ├── modules/
+
   │   ├── vpc/
+
   │   ├── eks/
+
   │   ├── iam/
+
   │   ├── rds/
+
   │   └── ecr/
 
 main.tf: Calls modules and sets up dependencies.
