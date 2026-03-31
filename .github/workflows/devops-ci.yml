@@ -10,7 +10,12 @@ jobs:
   terraform-validate:
     name: Terraform Validate
     runs-on: ubuntu-latest
+<<<<<<< HEAD
     if: hashFiles('terraform/**/*.tf') != ''
+=======
+
+    if: ${{ hashFiles('terraform/**/*.tf') != '' }}
+>>>>>>> 7daa5b598b19af2a3bf5407eae86505738ee5451
 
     defaults:
       run:
