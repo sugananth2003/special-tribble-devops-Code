@@ -1,0 +1,57 @@
+name: DevOps CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  terraform-validate:
+    name: Terraform Validate
+    runs-on: ubuntu-latest
+    if: ${{ hashFiles('terraform/**/*.tf') != '' }}
+    defaults:
+      run:
+        working-directory: terraform
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform format check
+        run: terraform fmt -check -recursive
+
+      - name: Terraform init (no backend)
+        run: terraform init -backend=false
+
+      - name: Terraform validate
+        run: terraform validate
+
+  helm-lint:
+    name: Helm Lint
+    runs-on: ubuntu-latest
+    if: ${{ hashFiles('helm/**/Chart.yaml') != '' }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Helm
+        uses: azure/setup-helm@v4
+
+      - name: Lint retail chart
+        run: helm lint helm/retail-platform
+
+  structure-check:
+    name: Repository Structure Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show scaffolded directories
+        run: |
+          echo "Project scaffold created successfully"
+          find . -maxdepth 3 -type d | sort

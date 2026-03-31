@@ -1,4 +1,7 @@
-That’s a powerhouse stack you’ve outlined — essentially the “all-in-one” DevOps blueprint for a modern production-grade system. Let’s break down how you could architect and implement a retail store with 5 microservices on AWS using those tools:
+That’s a powerhouse stack you’ve outlined — 
+
+Essentially the “all-in-one” DevOps blueprint for a modern production-grade system. Let’s break down how you could architect and implement a retail store with 5 microservices on AWS using those tools:
+
 🏗️ Architecture Overview
 Microservices (5 total):
 Example services could be Catalog, Cart, Orders, Payments, and User/Auth. Each runs independently in containers.
@@ -81,6 +84,7 @@ Payments integrated with AWS Secrets Manager for credentials.
 RDS/DynamoDB for persistence.
 
 🚀 Production-Ready Checklist
+
 ✅ Auto-scaling policies for EKS node groups.
 
 ✅ Centralized logging with OpenTelemetry → CloudWatch/Grafana.
@@ -218,6 +222,7 @@ generate:
 Here’s a complete starter pack for your DevOps pipeline — modular, production-ready, and tailored for AWS EKS deployments:
 
 🧱 Terraform Module Structure
+==================================
 Code
 terraform/
 ├── main.tf
@@ -235,6 +240,8 @@ main.tf: Calls modules and sets up dependencies.
 backend.tf: Configures remote state (S3 + DynamoDB).
 
 modules/: Each module has its own main.tf, variables.tf, outputs.tf.
+
+=========================================================================
 
 ⚙️ GitHub Actions YAML Template
 yaml
@@ -266,6 +273,7 @@ jobs:
       - name: Run tests
         run: |
           docker run --rm ${{ secrets.ECR_URI }} npm test
+          =========================================================
 ⚓ Helm Chart Skeleton
 Code
 helm/
@@ -527,6 +535,7 @@ module "eks" {
 
 IAM Module
 Design: Centralized management of IAM roles, policies, and OIDC providers.
+==================================================================================
 
 Best Practices:
 
@@ -1201,10 +1210,6 @@ See [quickstart.md](./quickstart.md) for step-by-step setup instructions.
 
 ## Observability
 
-- **Metrics**: Prometheus, AWS Managed Prometheus
-- **Dashboards**: Grafana, AWS Managed Grafana
-- **Tracing**: OpenTelemetry, AWS X-Ray
-- **Logging**: CloudWatch, Fluent Bit
 
 ## Security
 
@@ -1288,7 +1293,11 @@ This report provides a **comprehensive, production-ready blueprint** for deployi
 
 **References to best practices, community modules, and real-world templates are integrated throughout the report to ensure credibility and alignment with industry standards.** This approach empowers organizations to deliver secure, scalable, and observable retail platforms in the cloud era.
 
----
-See my thinking
+## Reference
 
-Continue the conversation
+For a high-level summary of the architecture, workflow, and key features of this DevOps project, see [overview.md](overview.md).
+
+Refer to the overview document for a concise summary and onboarding guide.
+
+---
+![alt text](image.png)
