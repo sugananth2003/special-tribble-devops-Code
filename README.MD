@@ -1,3 +1,9 @@
+Quick start documentation for my Devops POC project for a Fict Co. - "special-tribble"
+
+Github - https://github.com/sugananth2003/special-tribble-devops-Code
+
+
+
 That’s a powerhouse stack you’ve outlined — 
 
 Essentially the “all-in-one” DevOps blueprint for a modern production-grade system. Let’s break down how you could architect and implement a retail store with 5 microservices on AWS using those tools:
