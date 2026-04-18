@@ -1,4 +1,4 @@
-Quick start documentation for my Devops POC project for a Fict Co. - "special-tribble"
+Quick start documentation for my Devops POC project for a Fictitious Company -  Co. Name  - "special-tribble"
 
 Github - https://github.com/sugananth2003/special-tribble-devops-Code
 
